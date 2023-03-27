@@ -42,7 +42,7 @@ namespace MvcProjeKampi2.Controllers
             //cm.CategoryAddBL(p);
 
             CategoryValidator cv = new CategoryValidator();
-            ValidationResult ""
+           
             
             return RedirectToAction("GetCategoryList"); // ekleme işlemini gerçeleştirdikten sonra GetCategoryList metoduna yönlendirecek(verilerin listelendiği metot)
 
