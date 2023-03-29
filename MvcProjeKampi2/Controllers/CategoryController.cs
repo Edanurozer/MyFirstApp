@@ -36,16 +36,23 @@ namespace MvcProjeKampi2.Controllers
 
 
         [HttpPost] // sayfamda bir butona tıkladığım zaman sayfada birşey post edildiğinde zaman httppost çalışacak
-        public ActionResult AddCategory( Category p)
-        {
-
-            //cm.CategoryAddBL(p);
-
-            CategoryValidator cv = new CategoryValidator();
-           
-            
-            return RedirectToAction("GetCategoryList"); // ekleme işlemini gerçeleştirdikten sonra GetCategoryList metoduna yönlendirecek(verilerin listelendiği metot)
-
+        public ActionResult AddCategory(Category category)
+        { 
+            CategoryValidator categoryValidator = new CategoryValidator();
+            ValidationResult results = categoryValidator.Validate(category);// results isminde değişken oluşturdum, değişken türü ValidationResult, cv den gelen değerlere göre validasyom yap(kontrol) 
+            if(results.IsValid) // eğer sonuç validasyona uygun olursa
+            {
+                cm.CategoryAdd(category);
+                return RedirectToAction("GetCategoryList"); //doğruluk sağlandıysa getcategorylist aksiyona yönlendirecek
+            }
+            else
+            {
+                foreach (var item in results.Errors)// var-değişken türü, item-değişken bilgisi, in-içinden, cellection-dizinin adı
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);//modelin durumuna hataları ekle(categorynamevs.) 
+                }
+            }
+            return View(); 
         }
      
     }
