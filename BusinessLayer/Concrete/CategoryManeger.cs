@@ -20,6 +20,23 @@ namespace BusinessLayer.Concrete
             _categoryDal.Insert(category); 
         }
 
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);// categoriden gelen değere göre göncelleme yapacak
+        }
+
+        public void DeleteCategroy(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public Category GetByID(int id)
+        {
+            return _categoryDal.Get(x => x.CategoryID == id);// id ' den gelen değere eşit olmalı
+
+        }
+
+
 
 
         // GenericRepository<Category> repo = new GenericRepository<Category>();
