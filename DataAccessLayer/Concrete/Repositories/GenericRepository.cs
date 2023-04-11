@@ -29,6 +29,12 @@ namespace DataAccessLayer.Concrete.Repositories
             C.SaveChanges();
         }
 
+        public T Get(Expression<Func<T, bool>> Filter)
+        {
+            return _object.SingleOrDefault(Filter); //SingleOrDefaul methodu ile geriye filter' dan gelen değeri döndürecek
+             //GenericRepository içerisinde bu method tanımlandığı için, GenericRepository' den miras alan bütün sınıflarda da bu method geçerli olacak
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);
