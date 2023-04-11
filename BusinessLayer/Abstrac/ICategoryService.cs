@@ -12,6 +12,9 @@ namespace BusinessLayer.Abstrac
         List<Category> GetList();
 
         void CategoryAdd(Category category); // Categoryadd metodu,  category' den category parametresi alacak 
+        Category GetByID(int id);
+        void DeleteCategroy(Category category);
+        void CategoryUpdate(Category category);
 
 
 
