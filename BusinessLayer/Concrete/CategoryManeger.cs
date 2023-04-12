@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete
 
         public void CategoryUpdate(Category category)
         {
-            _categoryDal.Update(category);// categoriden gelen değere göre göncelleme yapacak
+            _categoryDal.Update(category);// categoriden gelen değere göre göncelleme yapacak 
         }
 
         public void DeleteCategroy(Category category)

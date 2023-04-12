@@ -57,8 +57,9 @@ namespace MvcProjeKampi2.Controllers
         [HttpGet] //sayfa yüklendiğinde çalışacak
         public ActionResult EditCategory(int id)
         {
+
             var categoryvalue = cm.GetByID(id); // id değişkeninden parametre değerine göre ilgili satırın kayıtlarını categoryvalue isimli değişgenime atayacak
-            return View(categoryvalue);
+            return View(categoryvalue); // değişgenle beraber döndürecek
         }
 
 

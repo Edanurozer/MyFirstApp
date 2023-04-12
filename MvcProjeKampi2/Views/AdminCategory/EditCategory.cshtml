@@ -1,10 +1,19 @@
-﻿
+﻿@model EntityLayer.Concrete.Category
+
 @{
     ViewBag.Title = "EditCategory";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2> Kategori Güncelleme Sayfası</h2>
+@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post)) 
+{ 
+    <div class="form-group">
+        @Html.Label("Kategorş ID")
+        @Html.TextBoxFor(x=> x.CategoryID)
+
+    </div>
+}
 
 
 
