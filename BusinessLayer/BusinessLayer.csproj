@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstrac\ICategoryService.cs" />
+    <Compile Include="Abstrac\IWriterService.cs" />
     <Compile Include="Concrete\CategoryManeger.cs" />
+    <Compile Include="Concrete\WriterMenager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\CategoryValidator.cs" />
   </ItemGroup>
