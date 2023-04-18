@@ -15,6 +15,7 @@ namespace MvcProjeKampi2.Controllers
         public ActionResult Index()
         {
             var WriterValues = wm.GetList(); //ekleme
+
             return View(WriterValues);
         }
     }
