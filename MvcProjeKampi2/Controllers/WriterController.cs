@@ -15,6 +15,7 @@ namespace MvcProjeKampi2.Controllers
     {
         WriterMenager wm = new WriterMenager(new EfWriterDal());
 
+        WriterValidator writervalidator = new WriterValidator();
         public ActionResult Index()
         {
             var WriterValues = wm.GetList(); //ekleme
@@ -31,7 +32,7 @@ namespace MvcProjeKampi2.Controllers
         [HttpPost]
         public ActionResult AddWriter(Writer p)
         {
-            WriterValidator writervalidator = new WriterValidator();
+           
             ValidationResult results = writervalidator.Validate(p); // p den gelen değerleri kontrol et
             if (results.IsValid)
             {
@@ -49,6 +50,32 @@ namespace MvcProjeKampi2.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult EditWriter(int id)
+        {
+            var writervalue = wm.GetByID(id);
+            return View(writervalue);
 
+        }
+
+        [HttpPost]
+        public ActionResult EditWriter(Writer p)
+        {
+            ValidationResult results = writervalidator.Validate(p); // p den gelen değerleri kontrol et
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(p); // validator geçerliyse güncelleme yapacak
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage)
+;
+                }
+            }
+            return View();
+        }
     }
 }
