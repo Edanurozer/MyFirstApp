@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-  public  class EfHeadingDal:GenericRepository<Heading>, IHeadingDal
+  public  class EfHeadingDal:GenericRepository<Heading>, IHeadingDal //Bu sınıf ve ınterface' lerdeki tanımlanan değeleri EfHeadingDal sınıfından miras  alındı
     {
     }
 }
