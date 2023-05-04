@@ -5,7 +5,7 @@
     
     public partial class mig_writer_edit : DbMigration
     {
-        public override void Up() // Güncellenece olan kısım
+        public override void Up() // Güncellenecekolan kısım
         {
             AddColumn("dbo.Writers", "WriterAbaut", c => c.String(maxLength: 100));
             AlterColumn("dbo.Writers", "WriterMail", c => c.String(maxLength: 200));
