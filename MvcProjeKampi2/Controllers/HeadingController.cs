@@ -16,6 +16,8 @@ namespace MvcProjeKampi2.Controllers
 
         CategoryManeger cm = new CategoryManeger(new EfCategoryDal());
 
+        WriterMenager wm = new WriterMenager(new EfWriterDal());
+
         public ActionResult Index()
         {
             var headingValues = hm.GetList();
@@ -24,12 +26,19 @@ namespace MvcProjeKampi2.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         {
-            List<SelectListItem> valuecategory = (from x in cm.GetList() select new SelectListItem // yeni bir liste öğesini seçecek
-            { Text = x.CategoryName, Value = x.CategoryID.ToString() }).ToList(); // verileri dropdownlist aracı üzerinden listeleyecek
+            List<SelectListItem> valuecategory = (from x in cm.GetList()
+                                                  select new SelectListItem // yeni bir liste öğesini seçecek
+                                                  { Text = x.CategoryName, Value = x.CategoryID.ToString() }).ToList(); // verileri dropdownlist aracı üzerinden listeleyecek
             // Dropdown iki adet parametresi oalcak biri ValueNumber= Seçmiş olduğum değerin ID' si   DisplayNumber= Seçmiş olduğum değerin görünüm kısmı yani categıriadı olacak
             // ValueNumber ve DisplayNumber' ın controller' daki karşılığı Text ve Value. Text Displaynumver oluyor Value valueNumber oluyoor.
 
+
+            List<SelectListItem> valuewriter = (from x in wm.GetList() select new SelectListItem { Text = x.WriterName + " " + x.WriterSurName, Value = x.WriterID.ToString() }).ToList();
+
+
+
             ViewBag.vlc = valuecategory; // controller üzerinde viewbag yardımı ile View'e taşıyacak
+            ViewBag.vlm = valuewriter;
 
             return View();
         }
