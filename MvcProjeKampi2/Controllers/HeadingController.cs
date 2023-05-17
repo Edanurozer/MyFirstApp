@@ -49,9 +49,16 @@ namespace MvcProjeKampi2.Controllers
             hm.HeadingAdd(p);
             return RedirectToAction("Index");
         }
-        public ActionResult ContentByHeading()
+       public ActionResult EditHeading (int id)
         {
-            return View();
+            List<SelectListItem> valuecategory = (from x in cm.GetList()
+                                                  select new SelectListItem // yeni bir liste öğesini seçecek
+                                                  { Text = x.CategoryName, Value = x.CategoryID.ToString() }).ToList();
+
+            ViewBag.vlc = valuecategory;
+
+            var HeadingValue = hm.GetByID(id);
+            return View(HeadingValue);
         }
     }
 }
