@@ -63,16 +63,19 @@
   <ItemGroup>
     <Compile Include="Abstrac\IAboutService.cs" />
     <Compile Include="Abstrac\ICategoryService.cs" />
+    <Compile Include="Abstrac\IContactService.cs" />
     <Compile Include="Abstrac\IContentService.cs" />
     <Compile Include="Abstrac\IHeadingService.cs" />
     <Compile Include="Abstrac\IWriterService.cs" />
     <Compile Include="Concrete\AboutManager.cs" />
     <Compile Include="Concrete\CategoryManeger.cs" />
+    <Compile Include="Concrete\ContactManager.cs" />
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\HeadingManager.cs" />
     <Compile Include="Concrete\WriterMenager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\CategoryValidator.cs" />
+    <Compile Include="ValidationRules\ContactValidator.cs" />
     <Compile Include="ValidationRules\WriterValidator.cs" />
   </ItemGroup>
   <ItemGroup>
